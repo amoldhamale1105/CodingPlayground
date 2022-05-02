@@ -52,20 +52,16 @@ static bool canMoveUp(const int& rowIndex, const int& colIndex, const std::vecto
     return true;
 }
 
-static std::vector<std::vector<int>> ratAndMice(const std::vector<std::string>& arr)
+static void helper(const std::vector<std::string>& arr, int& row, int& col, Move_E& lastMove, std::vector<std::vector<int>>& solution)
 {
-    static int mazeWidth = arr[0].length();
-    static int mazeHeight = arr.size();
-    static int row{0}, col{0};
-    static Move_E lastMove{Move_E::RIGHT};
-
-    static std::vector<std::vector<int>> solution(mazeHeight, std::vector<int>(mazeWidth));
+    int mazeWidth = arr[0].length();
+    int mazeHeight = arr.size();
 
     //Base case
     // Target reached at the bottom right corner of the maze
     if (row == mazeHeight-1 && col == mazeWidth-1){
         solution[0][0] = 1;
-        return solution;
+        return;
     }
     
     //Rec case
@@ -138,7 +134,21 @@ static std::vector<std::vector<int>> ratAndMice(const std::vector<std::string>& 
     }
 
     solution[row][col] = 1;
-    return ratAndMice(arr);
+    helper(arr, row, col, lastMove, solution);
+    return;
+}
+
+static std::vector<std::vector<int>> ratAndMice(const std::vector<std::string>& arr)
+{
+    int mazeWidth = arr[0].length();
+    int mazeHeight = arr.size();
+    int row{0}, col{0};
+    Move_E lastMove{Move_E::RIGHT};
+    std::vector<std::vector<int>> solution(mazeHeight, std::vector<int>(mazeWidth));
+
+    helper(arr, row, col, lastMove, solution);
+
+    return solution;
 }
 
 int main()

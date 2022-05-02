@@ -45,11 +45,8 @@ static bool canPlace(const int& rowIndex, const int& colIndex, const std::vector
     return true;
 }
 
-static int nQueen(const int& n)
+static int helper(const int& row, const int& n, std::vector<std::vector<int>>& board)
 {
-    static std::vector<std::vector<int>> board(n, std::vector<int>(n, 0));
-    static int row{0};
-
     //Base case
     if (row >= n){
         //Print possible solutions (optional)
@@ -63,14 +60,18 @@ static int nQueen(const int& n)
     {
         if (canPlace(row, col, board)){
             board[row][col] = 1;
-            row++;
-            ways += nQueen(n);
-            row--;
+            ways += helper(row+1, n, board);
             board[row][col] = 0;
         }
     }
 
     return ways;
+}
+
+static int nQueen(const int& n)
+{
+    std::vector<std::vector<int>> board(n, std::vector<int>(n, 0));
+    return helper(0, n, board);
 }
 
 int main(int argc, char** argv)
