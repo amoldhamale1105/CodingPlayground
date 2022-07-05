@@ -95,4 +95,6 @@ int main()
         std::cout<<"word present!"<<std::endl;
     else
         std::cout<<"word absent!"<<std::endl;
+    
+    return 0;
 }
