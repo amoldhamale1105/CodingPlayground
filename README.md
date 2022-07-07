@@ -21,16 +21,16 @@ The problem statements are not mentioned in the source file but can be interpret
 All code from this section is written by me (Amol Dhamale) and is 100% original
 
 ## Section 3: General coding problems or experimental code
-This section does have a seperate directory as of the time of making this README  
-The code in this category as the title suggests is purely exprimental written as I learn any new concept in C++ to try it out. I have left it in here just in case it benefits anyone who is also learning C++ or is a new programmer  
+This section directory (ExperimentalCode) contains purely exprimental code based on new C++ concepts I learnt. I have left it in here just in case it benefits anyone who is also learning C++ or is a new programmer  
 Experts in C++ can safely ignore this section  
-All the code outside the 2 directories for the first 2 sections falls under this category  
 Like other sections, compiled binaries are also present alongwith  
 All code from this section is written by me (Amol Dhamale) and is 100% original
 
 ## Intention
 **Please note that the code herein is not perfect!** There might be better and more optimized ways of implementing some tasks and that's exactly the intention of exposing this repo to the public.  
 I am inviting suggestions and modifications on the code in any of the 3 sections.  
-You can either email (amoldhamale1105@gmail.com) me your suggesstions/modifications or raise a pull request on the master branch  
+You can either email (amoldhamale1105@gmail.com) me your suggesstions/modifications or create a new branch and raise a pull request against the master branch  
 You can also raise issues on github if you discover any.  
 All code in these sections is exposed under the MIT license for the benefit of the community  
+
+<font size="5">**Happy coding and learning!**</font>
