@@ -3,7 +3,7 @@
 class Sport
 {
 	protected:
-		virtual void print(){}
+		virtual void print(){ std::cout<<"I love sports!"<<std::endl; }
 };
 
 class Cricket : public Sport
@@ -23,8 +23,7 @@ class Badminton : public Sport
 
 int main(int argc, char** argv)
 {
-	Cricket *c = new Cricket();
-	Sport *s = c;
+	Sport *s = new Cricket();
 	Cricket *c2 = dynamic_cast<Cricket*>(s);
 	c2->print();
 	return 0;
