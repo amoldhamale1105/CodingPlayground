@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#ifdef CXX17
 #include <variant>
+#endif
 
 std::ostream& operator<<(std::ostream& stream, const std::vector<std::pair<std::string, int>>& vec)
 {
@@ -16,6 +18,7 @@ static std::vector<std::pair<std::string, int>> sortFruits(const std::vector<std
 {
     std::vector<std::pair<std::string, int>> sortedFruits = v;
     int n = v.size();
+#ifdef CXX17
     std::variant<std::string, int> minEntity;
 
     for(auto i = 0; i < n-1; ++i)
@@ -38,6 +41,7 @@ static std::vector<std::pair<std::string, int>> sortFruits(const std::vector<std
             }
         }
     }
+#endif
     return sortedFruits;
 }
 

@@ -1,0 +1,16 @@
+project(DSA_Exercises)
+
+# Set parent directory for downstream projects
+get_filename_component(PARENT_DIR ${PROJECT_SOURCE_DIR} NAME_WE)
+
+add_subdirectory(Arrays)
+add_subdirectory(Sorting)
+add_subdirectory(CharArrays)
+add_subdirectory(2DArrays)
+add_subdirectory(Vectors)
+add_subdirectory(BitManipulation)
+add_subdirectory(Recursion)
+add_subdirectory(DivideAndConquer)
+add_subdirectory(Backtracking)
+add_subdirectory(LinkedLists)
+add_subdirectory(Stacks)
