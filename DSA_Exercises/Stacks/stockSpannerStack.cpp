@@ -1,19 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
-
-std::ostream& operator<<(std::ostream& stream, const std::vector<int>& vec)
-{
-    stream <<"[";
-    for(const int& num : vec)
-    {
-        stream << num << " ";
-    }
-    stream<<'\b';
-    stream<<"]";
-    
-    return stream;
-}
+#include <ComplexObjectStream.hpp>
 
 std::vector<int> stockSpanner(const std::vector<int> &stocks)
 {

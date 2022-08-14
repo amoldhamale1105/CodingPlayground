@@ -1,16 +1,6 @@
 #include <iostream>
 #include <vector>
-
-std::ostream& operator<<(std::ostream& stream, const std::vector<int>& vec)
-{
-    stream<<"[";
-    for(const int& num : vec)
-    {
-        stream << num << " ";
-    }
-    stream<<'\b'<<"]";
-    return stream;
-}
+#include <ComplexObjectStream.hpp>
 
 std::vector<int> kRotate(const std::vector<int>& a, const int& k)
 {

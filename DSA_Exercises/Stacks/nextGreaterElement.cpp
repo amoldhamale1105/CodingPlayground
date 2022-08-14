@@ -2,19 +2,7 @@
 #include <vector>
 #include <stack>
 #include <algorithm>
-
-std::ostream& operator<<(std::ostream& stream, const std::vector<int>& vec)
-{
-    stream <<"[";
-    for(const int& num : vec)
-    {
-        stream << num << " ";
-    }
-    stream<<'\b';
-    stream<<"]";
-    
-    return stream;
-}
+#include <ComplexObjectStream.hpp>
 
 std::vector<int> nextGreaterElement(const std::vector<int>& v)
 {

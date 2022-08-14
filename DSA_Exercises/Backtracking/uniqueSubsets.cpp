@@ -1,17 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
-std::ostream& operator<<(std::ostream& stream, const std::vector<int>& vec)
-{
-    stream << "{";
-    for(const int& num : vec)
-    {
-        stream << num << " ";
-    }
-    stream << "}";
-    return stream;
-}
+#include <ComplexObjectStream.hpp>
 
 static bool contains(const std::vector<std::vector<int>>& subset, const std::vector<int>& searchVec)
 {
@@ -63,7 +53,13 @@ int main()
     std::vector<std::vector<int>> subsets = uniqueSubsets(nums);
     for(const std::vector<int>& vec : subsets)
     {
-        std::cout<<vec;
+        if (vec.empty()){
+            std::cout<<"{NULL} ";
+            continue;
+        }
+        std::cout<<vec<<" ";
     }
     std::cout<<std::endl;
+
+    return 0;
 }

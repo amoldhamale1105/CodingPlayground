@@ -1,18 +1,6 @@
 #include <iostream>
 #include <vector>
-
-std::ostream& operator<<(std::ostream& stream, const std::vector<std::vector<int>>& mat)
-{
-    for(const std::vector<int>& vec : mat)
-    {
-        for(const int& num : vec)
-        {
-            stream << num << " ";
-        }
-        stream<<std::endl;
-    }
-    return stream;
-}
+#include <ComplexObjectStream.hpp>
 
 static void rotate(std::vector<std::vector<int>>& matrix)
 {

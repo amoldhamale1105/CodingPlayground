@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cstring>
+#include <ComplexObjectStream.hpp>
 
 union variant
 {
@@ -18,15 +19,6 @@ union variant
         memcpy(this, &other, sizeof(variant));
     }
 };
-
-std::ostream& operator<<(std::ostream& stream, const std::vector<std::pair<std::string, int>>& vec)
-{
-    for(const std::pair<std::string,int>& myPair : vec)
-    {
-        stream << myPair.first << "," << myPair.second<<std::endl;
-    }
-    return stream;
-}
 
 static std::vector<std::pair<std::string, int>> sortFruits(const std::vector<std::pair<std::string,int>>& v, const std::string& S)
 {
@@ -66,6 +58,6 @@ int main(int argc, char** argv)
         return -1;
     }
     std::vector<std::pair<std::string, int>> fruits = {{"Mango",100}, {"Guava",70}, {"Grapes",40}, {"Apple",60}, {"Banana",30}};
-    std::cout<<sortFruits(fruits, argv[1]);
+    std::cout<<sortFruits(fruits, argv[1])<<std::endl;
     return 0;
 }

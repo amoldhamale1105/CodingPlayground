@@ -2,19 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <set>
-
-std::ostream& operator<<(std::ostream& stream, const std::vector<std::vector<int>>& mat)
-{
-    for(const std::vector<int>& vec : mat)
-    {
-        for(const int& num : vec)
-        {
-            stream << num << " ";
-        }
-        stream<<std::endl;
-    }
-    return stream;
-}
+#include <ComplexObjectStream.hpp>
 
 static std::vector<std::vector<int>> makeZeroes(const std::vector<std::vector<int>>& arr)
 {

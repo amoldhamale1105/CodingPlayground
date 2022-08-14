@@ -1,17 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
-std::ostream& operator<<(std::ostream& stream, const std::vector<int>& vec)
-{
-    stream<<"[";
-    for(const int& num : vec)
-    {
-        stream << num << " ";
-    }
-    stream<<'\b'<<"]";
-    return stream;
-}
+#include <ComplexObjectStream.hpp>
 
 std::vector<int> optimizedBubbleSort(const std::vector<int>& v)
 {

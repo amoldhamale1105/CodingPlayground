@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <ComplexObjectStream.hpp>
 
 enum Move_E
 {
@@ -8,19 +9,6 @@ enum Move_E
     LEFT,
     UP
 };
-
-std::ostream& operator<<(std::ostream& stream, const std::vector<std::vector<int>>& mat)
-{
-    for(const std::vector<int>& vec : mat)
-    {
-        for(const int& num : vec)
-        {
-            stream << num << " ";
-        }
-        stream<<std::endl;
-    }
-    return stream;
-}
 
 static bool canMoveDown(const int& rowIndex, const int& colIndex, const std::vector<std::string>& maze)
 {

@@ -1,18 +1,6 @@
 #include <iostream>
 #include <vector>
-
-std::ostream& operator<<(std::ostream& stream, const std::vector<std::vector<int>>& mat)
-{
-    for(const std::vector<int>& vec : mat)
-    {
-        for(const int& num : vec)
-        {
-            stream << num << " ";
-        }
-        stream<<std::endl;
-    }
-    return stream;
-}
+#include <ComplexObjectStream.hpp>
 
 static void merge(std::vector<int>& vec, const int& s, const int& e)
 {
@@ -97,13 +85,8 @@ static std::vector<std::vector<int>> mergeSort(const int& m, const int& n, const
     return sortedVec;
 }
 
-int main(int argc, char** argv)
+int main()
 {
-    if (argc < 3){
-        std::cerr<<"Please enter matrix dimensions as program args"<<std::endl;
-        return -1;
-    }
-
     std::vector<std::vector<int>> mat = {{18,4,16,8},
                                          {23,13,20,11},
                                          {28,24,26,25},
@@ -111,7 +94,7 @@ int main(int argc, char** argv)
     // std::vector<std::vector<int>> mat = {{18,9,11},
     //                                      {1,4,15},
     //                                      {13,23,20}};
-    std::cout<<mergeSort(std::stoi(argv[1]), std::stoi(argv[2]), mat);
+    std::cout<<mergeSort(mat.size(), mat[0].size(), mat);
 
     return 0;
 }

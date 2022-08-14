@@ -1,18 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <ComplexObjectStream.hpp>
 #ifdef CXX17
 #include <variant>
 #endif
-
-std::ostream& operator<<(std::ostream& stream, const std::vector<std::pair<std::string, int>>& vec)
-{
-    for(const std::pair<std::string,int>& myPair : vec)
-    {
-        stream << myPair.first << "," << myPair.second<<std::endl;
-    }
-    return stream;
-}
 
 static std::vector<std::pair<std::string, int>> sortFruits(const std::vector<std::pair<std::string,int>>& v, const std::string& S)
 {
