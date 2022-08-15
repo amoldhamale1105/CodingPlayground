@@ -14,9 +14,13 @@ There are 3 standard subsections: Structural, Creational and Behavioural
 Each subsection directory contains a source file for each design pattern under the 3 categories mentioned above  
 
 ### DSA (Data structures and algorithms) Problems
-This section directory (DSA_Exercises) contains various DSA problem statement solutions in form of source code.  
-The problem statements are not mentioned in the category directory but can be interpreted from the title of the source file  
-**TODO:** Add problem statement either to the source file or upload a separate resource  
+This section directory (DSA_Exercises) contains various DSA problem statements and their solutions in form of source code.  
+A problem statements document for each category is placed under their respective directory. The source file containing the solution in the same directory is mentioned at end of every problem.  
+#### Some directions and requests to get the best out of this section:  
+- Try solving the problems on your own and then verify your solution using the same `main()` function used inside the solution for respective problem
+- Once you're getting expected output with the default input parameters, put your solution to test with 4-5 additional test cases
+- Evaluate my solution and also put that to test with your own test cases to uncover hidden bugs and then compare it with yours
+- Review my solution because it may contain redundancies or defects. Please raise a PR or create an issue as you see fit in such cases
 
 ### General coding problems or experimental code
 This section directory `ExperimentalCode` contains purely exprimental code based on new C++ concepts I learnt. I have left it in here just in case it benefits anyone who is also learning C++ or is a new programmer  
