@@ -14,6 +14,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <queue>
 
 template <typename T1, typename T2>
 std::ostream& operator<<(std::ostream& stream, const std::pair<T1, T2>& pair)
@@ -75,6 +76,24 @@ std::ostream& operator<<(std::ostream& stream, std::stack<T>& stack)
     recursiveStackHelper(stream, stack);
     stream << '\b' << "]";
     
+    return stream;
+}
+
+template <typename T>
+std::ostream& operator<<(std::ostream& stream, std::queue<T>& queue)
+{
+    size_t len = queue.size();
+    
+    stream << "<[";
+    for(auto i = 0; i < len; ++i)
+    {
+        T element = queue.front();
+        stream << element << " ";
+        queue.pop();
+        queue.push(element);
+    }
+    stream << '\b' << "]<";
+
     return stream;
 }
 
