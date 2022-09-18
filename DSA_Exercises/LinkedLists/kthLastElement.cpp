@@ -1,4 +1,5 @@
 #include <iostream>
+#include <PrintHelpers.hpp>
 
 class node{
 public:
@@ -40,32 +41,6 @@ int kthLastElement(node * head,int k){
     }
 
     return currentNode->data;
-}
-
-static std::string superScript(const int& number)
-{
-    std::string ret;
-    
-    switch (number%10)
-    {
-    case 1:
-        ret = "st";
-        break;
-    case 2:
-        ret = "nd";
-        break;
-    case 3:
-        ret = "rd";
-        break;
-    default:
-        ret = "th";
-        break;
-    }
-
-    if (number == 11 || number == 12 || number == 13)
-        ret = "th";
-
-    return ret;
 }
 
 int main(int argc, char** argv)
