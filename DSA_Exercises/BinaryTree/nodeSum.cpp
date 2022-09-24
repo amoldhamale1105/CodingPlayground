@@ -1,4 +1,5 @@
 #include <iostream>
+#include <Profiler.h>
 
 struct Node
 {
@@ -8,6 +9,7 @@ struct Node
 
 Node* buildTree()
 {
+    PROFILE_FUNCTION();
     int data;
     std::cin >> data;
 
@@ -26,6 +28,7 @@ Node* buildTree()
 
 int sumBT(Node* root)
 {
+    PROFILE_FUNCTION();
     if (root == nullptr)
         return 0;
 
@@ -37,7 +40,9 @@ int sumBT(Node* root)
 
 int main()
 {
+    Instrumentor::Instance().beginSession("sumbt");
     Node* root = buildTree();
     std::cout<<"Binary tree node sum: "<<sumBT(root)<<std::endl;
+    Instrumentor::Instance().endSession();
     return 0;
 }
