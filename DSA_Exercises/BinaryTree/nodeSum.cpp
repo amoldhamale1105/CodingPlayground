@@ -1,34 +1,10 @@
 #include <iostream>
-#include <Profiler.h>
+#include <vector>
+#include <CommonTypes.hpp>
+#include <BuildHelpers.hpp>
 
-struct Node
+int sumBT(Node<int>* root)
 {
-    int key;
-    Node* left, *right;
-};
-
-Node* buildTree()
-{
-    PROFILE_FUNCTION();
-    int data;
-    std::cin >> data;
-
-    if (data == -1)
-        return nullptr;
-    
-    Node* node = new Node;
-    node->key = data;
-    node->left = node->right = nullptr;
-
-    node->left = buildTree();
-    node->right = buildTree();
-
-    return node;
-}
-
-int sumBT(Node* root)
-{
-    PROFILE_FUNCTION();
     if (root == nullptr)
         return 0;
 
@@ -40,9 +16,8 @@ int sumBT(Node* root)
 
 int main()
 {
-    Instrumentor::Instance().beginSession("sumbt");
-    Node* root = buildTree();
+    std::vector<int> treeMap = {2,7,-1,9,11,-1,-1,4,-1,-1,5,-1,1,-1,-1};
+    Node<int>* root = buildTree(treeMap);
     std::cout<<"Binary tree node sum: "<<sumBT(root)<<std::endl;
-    Instrumentor::Instance().endSession();
     return 0;
 }
