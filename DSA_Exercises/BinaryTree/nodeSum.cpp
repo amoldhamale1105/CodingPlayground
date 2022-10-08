@@ -2,7 +2,6 @@
 #include <vector>
 #include <CommonTypes.hpp>
 #include <BuildHelpers.hpp>
-#include <PrintHelpers.hpp>
 
 int sumBT(Node<int>* root)
 {
