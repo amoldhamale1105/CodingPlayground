@@ -23,7 +23,7 @@ apt install -y gstreamer1.0-0
 apt install -y gstreamer1.0-libav
 apt-get install -y libgstreamer-plugins-base1.0-dev
 apt-get install -y mosquitto
-apt-get install -y mosquito-clients
+apt-get install -y mosquitto-clients
 apt install -y python3-pip
 pip3 install paho-mqtt
 apt install -y python3-tk
