@@ -3,23 +3,6 @@
 #include <BuildHelpers.hpp>
 #include <PrintHelpers.hpp>
 
-Node<int>* insert(Node<int>* root, const int& key)
-{
-    if (root == nullptr){
-        Node<int>* node = new Node<int>;
-        node->key = key;
-        node->left = node->right = nullptr;
-        return node;
-    }
-
-    if (key <= root->key)
-        root->left = insert(root->left, key);
-    else
-        root->right = insert(root->right, key);
-
-    return root;
-}
-
 bool search(Node<int>* root, const int& key)
 {
     if (root == nullptr)
@@ -39,13 +22,9 @@ int main(int argc, char** argv)
         return -1;
     }
     int searchElement = std::stoi(argv[1]);
-    Node<int>* root = nullptr;
     std::vector<int> arr = {8,3,10,1,6,14,4,7,13};
 
-    for(const int& element : arr)
-    {
-        root = insert(root, element);
-    }
+    Node<int>* root = buildBST(arr);
 
     printTree(root);
     std::cout<<searchElement<<(search(root, searchElement) ? " exists" : " does not exist")<<" in the BST"<<std::endl;

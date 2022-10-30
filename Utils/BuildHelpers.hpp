@@ -96,3 +96,51 @@ Node<T>* buildTreePtr(const std::vector<T>& treeMap)
 
     return buildTreePreorderPtr<T>(start, end);
 }
+
+struct has_comparator_impl
+{
+    template <typename T, typename gt = decltype(std::declval<const T&>().operator>()),
+                        typename lte = decltype(std::declval<const T&>().operator<=()),
+                        typename lt = decltype(std::declval<const T&>().operator<()),
+                        typename eq = decltype(std::declval<const T&>().operator==())>
+    static std::true_type test(int);
+    
+    template <typename...>
+    static std::false_type test(...);
+};
+
+template <typename T>
+struct has_comparator : decltype(has_comparator_impl::test<T>(0)) {};
+
+template <typename T>
+static Node<T>* insert(Node<T>* root, const T& key)
+{
+    if (root == nullptr)
+        return new Node<T>(key);
+
+    if (key <= root->key)
+        root->left = insert(root->left, key);
+    else
+        root->right = insert(root->right, key);
+
+    return root;
+}
+
+template <typename T>
+Node<T>* buildBST(const std::vector<T>& nodes)
+{
+    static_assert(std::is_same<T,int>::value ||
+                    std::is_same<T,float>::value ||
+                    std::is_same<T,double>::value ||
+                    std::is_same<T,long>::value ||
+                    std::is_same<T,long long>::value || 
+                    has_comparator<T>::value, 
+                    "type must have comparator functionality");
+    Node<T>* root = nullptr;
+
+    for(const T& element : nodes)
+    {
+        root = insert(root, element);
+    }
+    return root;
+}
