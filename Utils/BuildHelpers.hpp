@@ -129,11 +129,11 @@ static Node<T>* insert(Node<T>* root, const T& key)
 template <typename T>
 Node<T>* buildBST(const std::vector<T>& nodes)
 {
-    static_assert(std::is_same<T,int>::value ||
+    static_assert(std::is_same<T,char>::value ||
+                    std::is_same<T,int>::value ||
                     std::is_same<T,float>::value ||
                     std::is_same<T,double>::value ||
                     std::is_same<T,long>::value ||
-                    std::is_same<T,long long>::value || 
                     has_comparator<T>::value, 
                     "type must have comparator functionality");
     Node<T>* root = nullptr;
