@@ -3,16 +3,20 @@
 #include <algorithm>
 #include <ComplexObjectStream.hpp>
 
+// Best case time complexity will be O(n) when array is sorted
 std::vector<int> optimizedBubbleSort(const std::vector<int>& v)
 {
     std::vector<int> sortedVec = v;
     int n = v.size();
+	bool sorted = true;
 
 	for(int times = 1; times <= n-1; times++)
 	{
-		if(v[n-times-1] < v[n-times]){
-			if (times == n-1)
-				break;
+		if (sorted){
+			if (v[times] < v[times-1]){
+				sorted = false;
+				times = 1;
+			}
 			else
 				continue;
 		}
@@ -28,7 +32,8 @@ std::vector<int> optimizedBubbleSort(const std::vector<int>& v)
 
 int main()
 {
-    std::vector<int> input = {1, 3, 5, 7, 9};
+	std::vector<int> input = {1, 3, 5, 7, 9};
+    //std::vector<int> input = {1, 9, 3, 5, 7};
     std::cout<<"sorted: "<<optimizedBubbleSort(input)<<std::endl;
     return 0;
 }
